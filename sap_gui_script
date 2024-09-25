@@ -1,0 +1,54 @@
+If Not IsObject(application) Then
+   Set SapGuiAuto  = GetObject("SAPGUI")
+   Set application = SapGuiAuto.GetScriptingEngine
+End If
+If Not IsObject(connection) Then
+   Set connection = application.Children(0)
+End If
+If Not IsObject(session) Then
+   Set session    = connection.Children(0)
+End If
+If IsObject(WScript) Then
+   WScript.ConnectObject session,     "on"
+   WScript.ConnectObject application, "on"
+End If
+
+session.findById("wnd[0]/usr/cntlIMAGE_CONTAINER/shellcont/shell/shellcont[0]/shell").selectedNode = "A00004"
+session.findById("wnd[0]/usr/cntlIMAGE_CONTAINER/shellcont/shell/shellcont[0]/shell").doubleClickNode "A00004"
+session.findById("wnd[1]/usr/ctxtTCNT-PROF_DB").text = "0000000000023"
+session.findById("wnd[1]/usr/ctxtTCNT-PROF_DB").caretPosition = 12
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/ctxtCN_PSPNR-LOW").text = "*"
+session.findById("wnd[0]/usr/ctxtR_KSTAR-LOW").text = "123"
+session.findById("wnd[0]/usr/ctxtR_KSTAR-HIGH").text = "345"
+session.findById("wnd[0]/usr/ctxtR_BUDAT-LOW").text = "01.01.2024"
+session.findById("wnd[0]/usr/ctxtP_DISVAR").setFocus
+session.findById("wnd[0]/usr/ctxtP_DISVAR").caretPosition = 4
+session.findById("wnd[0]").sendVKey 4
+session.findById("wnd[1]/usr").verticalScrollbar.position = 18
+session.findById("wnd[1]/usr").verticalScrollbar.position = 17
+session.findById("wnd[1]/usr").verticalScrollbar.position = 16
+session.findById("wnd[1]/usr").verticalScrollbar.position = 15
+session.findById("wnd[1]/usr").verticalScrollbar.position = 14
+session.findById("wnd[1]/usr").verticalScrollbar.position = 13
+session.findById("wnd[1]/usr").verticalScrollbar.position = 12
+session.findById("wnd[1]/usr").verticalScrollbar.position = 11
+session.findById("wnd[1]/usr").verticalScrollbar.position = 10
+session.findById("wnd[1]/usr").verticalScrollbar.position = 9
+session.findById("wnd[1]/usr").verticalScrollbar.position = 8
+session.findById("wnd[1]/usr").verticalScrollbar.position = 7
+session.findById("wnd[1]/usr").verticalScrollbar.position = 6
+session.findById("wnd[1]/usr/lbl[1,4]").setFocus
+session.findById("wnd[1]/usr/lbl[1,4]").caretPosition = 7
+session.findById("wnd[1]").sendVKey 2
+session.findById("wnd[0]/usr/btnBUT1").press
+session.findById("wnd[1]/usr/txtKAEP_SETT-MAXSEL").text = "999999999999"
+session.findById("wnd[1]/usr/txtKAEP_SETT-MAXSEL").caretPosition = 9
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/tbar[1]/btn[8]").press
+session.findById("wnd[0]/tbar[1]/btn[43]").press
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/usr/subSUBSCREEN_STEPLOOP:SAPLAA5:0123/sub:SAPLAA5:0123/radSPOPLI-SELFLAG[0,0]").select
+session.findById("wnd[1]/usr/subSUBSCREEN_STEPLOOP:SAPLAS5:0115/sub:SAPLAS5:0115/radSPOPLI-SELFLAG[0,0]").setFocus
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/tbar[0]/btn[0]").press
